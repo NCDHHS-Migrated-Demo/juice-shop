@@ -1,0 +1,19 @@
+name: "Legitify Audit"
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * */2'
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: "Run Legitify Audit"
+        uses: Legit-Labs/legitify@4a5aac47ebdd5a1601612a124103d61419d5e04f
+        with:
+          analyze_self_only: true
+          scorecard: "yes"
+          upload_code_scanning: true
+          github_token: ${{ secrets.LEGITIFY_AUDIT_TOKEN }}
