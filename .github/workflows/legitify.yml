@@ -5,6 +5,14 @@ on:
   schedule:
     - cron: '0 0 * * */2'
 
+permissions:
+  actions: read
+  checks: write
+  contents: read
+  packages: read
+  security-events: write
+  statuses: write
+
 jobs:
   audit:
     runs-on: ubuntu-latest
